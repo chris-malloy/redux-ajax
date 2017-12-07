@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux'
 import FetchWeather from '../actions/fetchWeather';
+import FetchStocks from '../actions/fetchStocks';
 
 class SearchBar extends Component{
     constructor() {
@@ -13,15 +14,19 @@ class SearchBar extends Component{
     handleWeather(event) {
         event.preventDefault();
         console.log("Someone submitted a zip code.")
-        // console.log(event.target.value)
         const zipCode = document.getElementById('weather-input').value;
+        // why this.props.fetchWeather?
+        // from bindActionCreators?
+        // what is bindActionCreators?
         this.props.fetchWeather(zipCode);
 
     }
 
     handleStocks(event){
         event.preventDefault();
-         console.log("Someone submitted a stock.")
+        console.log("Someone submitted a stock.");
+        const stockSymbol = document.getElementById('stock-input').value;
+        this.props.fetchStocks(stockSymbol)
     }
 
     render() {
@@ -63,11 +68,14 @@ class SearchBar extends Component{
 // function sent to connect, connect will run later
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        fetchWeather: FetchWeather
+        fetchWeather: FetchWeather,
+        fetchStocks: FetchStocks,
     }, dispatch)
 }
 
 // connect takes 2 params
-// 1. state
+// 1. state 
 // 2. actions
+// Pass that function the component
+// Why connect to SearchBar?
 export default connect(null,mapDispatchToProps)(SearchBar);

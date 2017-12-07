@@ -13,8 +13,15 @@
 export default function(state = null, action){ // Step 1, 3 & 4
     switch(action.type){
         case "GET_WEATHER":
-        case "GET_STOCKS":
+            console.log("GET_WEATHER Ran");
+            console.log(action)
+            return action.payload;
+            break;
+        case "CLEAR_WEATHER":
+            console.log("CLEAR_WEATHER Ran");
+            return null;
         default:
+            console.log("Default case happened");
             return state;
     }
 };

@@ -6,10 +6,12 @@
 
 import { combineReducers } from 'redux'; // Step 1.
 import WeatherReducer from './WeatherReducer';
+import StocksReducer from './StocksReducer';
 
 // set combineReducers' return value to rootReducer
 const rootReducer = combineReducers({ // Step 2.
     weather: WeatherReducer, // Step 3 & 4
+    stocks: StocksReducer,
 })
 
 export default rootReducer;

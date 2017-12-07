@@ -29,7 +29,7 @@ import reduxPromise from 'redux-promise'
 // another way to look at it
 const middleWare = applyMiddleware(reduxPromise); // returns a function
 const theStore = middleWare(createStore);
-const theStoreWithReducers = theStore(reducers)
+const theStoreWithReducers = theStore(reducers);
 
 // wrap Provider component around App 
 ReactDOM.render(
